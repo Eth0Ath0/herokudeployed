@@ -37,7 +37,7 @@ public class Responsable implements Serializable {
 	  private String segundo_apellido_responsable;
 	  private Integer dpi_responsable;
 	  //@Temporal(TemporalType.DATE)
-	  @JsonFormat(pattern = "dd-MM-yyyy")
+	  @JsonFormat(pattern = "dd/MM/yyyy")
 	  private Date fecha_nacimiento_responsable;
 	  private Integer edad_responsable;
 	  private String sexo_responsable;

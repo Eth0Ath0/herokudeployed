@@ -36,7 +36,7 @@ public class Profesor implements Serializable{
 	  private String segundo_apellido_profesor;
 	  private Long dpi_profesor;
 	  //@Temporal(TemporalType.DATE)
-	  @JsonFormat(pattern = "dd-MM-yyyy")
+	  @JsonFormat(pattern = "DD/MM/YYYY")
 	  private Date fecha_nacimiento_profesor;
 	  private Integer edad_profesor;
 	  private String sexo_profesor;

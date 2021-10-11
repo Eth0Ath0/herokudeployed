@@ -27,7 +27,7 @@ public class Contenido implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
 	public String nombre_contenido;
-	@JsonFormat(pattern = "dd-MM-yyyy")
+	 @JsonFormat(pattern = "DD/MM/YYYY")
 	public Date fecha_creacion;
 	public String archivo;
 	

@@ -35,7 +35,7 @@ public class Estudiante implements Serializable {
 	  private String primer_apellido_estudiante;
 	  private String segundo_apellido_estudiante;
 	  //@Temporal(TemporalType.DATE)
-	  @JsonFormat(pattern = "dd-MM-yyyy")
+	  @JsonFormat(pattern = "DD/MM/YYYY")
 	  private Date fecha_nacimiento;
 	  private Integer edad_estudiante;
 	  private String sexo_estudiante;
