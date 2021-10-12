@@ -20,7 +20,7 @@ import gt.com.edu.model.services.ICalificacionService;
 import gt.com.edu.models.entity.Calificacion;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/calificaciones")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class calificacionController {
 	
@@ -28,7 +28,7 @@ public class calificacionController {
 	public ICalificacionService calificacionService;
 	
 	
-	@GetMapping("/calificaciones")
+	@GetMapping("/listar")
 	public List<Calificacion> index(){
 		return calificacionService.findAll();
 	
@@ -36,20 +36,20 @@ public class calificacionController {
 	}
 	
 
-	@GetMapping("/calificaciones/{id}")
+	@GetMapping("/buscar/{id}")
 	public Calificacion show(@PathVariable Long  id) {
 		return calificacionService.findById(id);
 		
 	}
 	
-	@PostMapping("/calificaciones")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Calificacion create(@RequestBody Calificacion calificacion) {
 		return calificacionService.save(calificacion);
 		
 	}
 	
-	@PutMapping("/calificaciones/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Calificacion update(@RequestBody Calificacion calificacion, @PathVariable Long id) {
 		
@@ -66,7 +66,7 @@ public class calificacionController {
 		return calificacionService.save(calificacionActual);
 	}
 	
-	@DeleteMapping("/calificaciones/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
     calificacionService.delete(id);

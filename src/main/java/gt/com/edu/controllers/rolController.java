@@ -19,34 +19,34 @@ import gt.com.edu.model.services.IRolService;
 import gt.com.edu.models.entity.Rol;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/roles")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class rolController {
 	
 	@Autowired
 	private IRolService rolService;
 	
-	@GetMapping("/roles")
+	@GetMapping("/listar")
 	public List<Rol> index(){
 		return rolService.findAll();
 	
 		
 	}
 	
-	@GetMapping("/roles/{id}")
+	@GetMapping("/buscar/{id}")
 	public Rol show(@PathVariable Long  id) {
 		return rolService.findById(id);
 		
 	}
 	
-	@PostMapping("/roles")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Rol create(@RequestBody Rol rol) {
 		return rolService.save(rol);
 		
 	}
 	
-	@PutMapping("/roles/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Rol update(@RequestBody Rol rol, @PathVariable Long id) {
 		
@@ -58,7 +58,7 @@ public class rolController {
 		return rolService.save(rolActual);
 	}
 	
-	@DeleteMapping("/roles/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
 	rolService.delete(id);

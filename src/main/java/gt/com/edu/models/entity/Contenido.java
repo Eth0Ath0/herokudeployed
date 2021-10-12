@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,7 +29,8 @@ public class Contenido implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
 	public String nombre_contenido;
-	 @JsonFormat(pattern = "DD/MM/YYYY")
+	//@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern = "yyyy/MM/dd")
 	public Date fecha_creacion;
 	public String archivo;
 	

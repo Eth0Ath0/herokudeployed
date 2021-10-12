@@ -21,7 +21,7 @@ import gt.com.edu.model.services.IProfesorService;
 import gt.com.edu.models.entity.Profesor;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/profesores")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class profesorController {
 	
@@ -29,7 +29,7 @@ public class profesorController {
 	@Autowired
 	private IProfesorService profesorService;
 	
-	@GetMapping("/profesores")
+	@GetMapping("/listar")
 	public List<Profesor> index(){
 		return profesorService.findAll();
 	
@@ -37,20 +37,20 @@ public class profesorController {
 	}
 	
 
-	@GetMapping("/profesores/{id}")
+	@GetMapping("/buscar/{id}")
 	public Profesor show(@PathVariable Long  id) {
 		return profesorService.findById(id);
 		
 	}
 	
-	@PostMapping("/profesores")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Profesor create(@RequestBody Profesor profesor) {
 		return profesorService.save(profesor);
 		
 	}
 	
-	@PutMapping("/profesores/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Profesor update(@RequestBody Profesor profesor , @PathVariable Long id) {
 		
@@ -73,7 +73,7 @@ public class profesorController {
 		return profesorService.save(profesorActual);
 	}
 	
-	@DeleteMapping("/profesores/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
     profesorService.delete(id);

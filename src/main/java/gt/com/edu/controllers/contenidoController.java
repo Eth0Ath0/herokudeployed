@@ -19,14 +19,14 @@ import gt.com.edu.model.services.IContenidoService;
 import gt.com.edu.models.entity.Contenido;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/contenidos")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class contenidoController {
 	
 	@Autowired
 	private IContenidoService contenidoService;
 	
-	@GetMapping("/contenidos")
+	@GetMapping("/listar")
 	public List<Contenido> index(){
 		return contenidoService.findAll();
 	
@@ -34,20 +34,20 @@ public class contenidoController {
 	}
 	
 
-	@GetMapping("/contenidos/{id}")
+	@GetMapping("/buscar/{id}")
 	public Contenido show(@PathVariable Long  id) {
 		return contenidoService.findById(id);
 		
 	}
 	
-	@PostMapping("/contenidos")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Contenido create(@RequestBody Contenido contenido) {
 		return contenidoService.save(contenido);
 		
 	}
 	
-	@PutMapping("/contenidos/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Contenido update(@RequestBody Contenido contenido, @PathVariable Long id) {
 		
@@ -62,7 +62,7 @@ public class contenidoController {
 		return contenidoService.save(contenidoActual);
 	}
 	
-	@DeleteMapping("/contenidos/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
     contenidoService.delete(id);

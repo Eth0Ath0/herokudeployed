@@ -19,34 +19,34 @@ import gt.com.edu.models.entity.Curso;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/cursos")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class cursoController {
 	
 	@Autowired
 	private ICursoService cursoService;
 	
-	@GetMapping("/cursos")
+	@GetMapping("/listar")
 	public List<Curso> index(){
 		return cursoService.findAll();
 	
 		
 	}
 	
-	@GetMapping("/cursos/{id}")
+	@GetMapping("/buscar/{id}")
 	public Curso show(@PathVariable Long  id) {
 		return cursoService.findById(id);
 		
 	}
 	
-	@PostMapping("/cursos")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Curso create(@RequestBody Curso curso) {
 		return cursoService.save(curso);
 		
 	}
 	
-	@PutMapping("/cursos/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Curso update(@RequestBody Curso curso, @PathVariable Long id) {
 		
@@ -58,7 +58,7 @@ public class cursoController {
 		return cursoService.save(cursoActual);
 	}
 	
-	@DeleteMapping("/cursos/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
 	cursoService.delete(id);

@@ -18,34 +18,34 @@ import gt.com.edu.model.services.IUsuarioService;
 import gt.com.edu.models.entity.Usuario;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/usuarios")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class usuarioController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;
 	
-	@GetMapping("/usuarios")
+	@GetMapping("/listar")
 	public List<Usuario> index(){
 		return usuarioService.findAll();
 	
 		
 	}
 	
-	@GetMapping("/usuarios/{id}")
+	@GetMapping("/buscar/{id}")
 	public Usuario show(@PathVariable Long  id) {
 		return usuarioService.findById(id);
 		
 	}
 	
-	@PostMapping("/usuarios")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario create(@RequestBody Usuario usuario) {
 		return usuarioService.save(usuario);
 		
 	}
 	
-	@PutMapping("/usuarios/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario update(@RequestBody Usuario usuario, @PathVariable Long id) {
 		
@@ -58,7 +58,7 @@ public class usuarioController {
 		return usuarioService.save(usuarioActual);
 	}
 	
-	@DeleteMapping("/usuarios/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
 	usuarioService.delete(id);

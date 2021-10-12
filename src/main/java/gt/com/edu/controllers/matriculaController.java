@@ -20,34 +20,34 @@ import gt.com.edu.models.entity.Matricula;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/matriculas")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class matriculaController {
 	
 	@Autowired
 	private IMatriculaService matriculaservice;
 	
-	@GetMapping("/matriculas")
+	@GetMapping("/listar")
 	public List<Matricula> index(){
 		return matriculaservice.findAll();
 	
 		
 	}
 	
-	@GetMapping("/matriculas/{id}")
+	@GetMapping("/buscar/{id}")
 	public Matricula show(@PathVariable Long  id) {
 		return matriculaservice.findById(id);
 		
 	}
 	
-	@PostMapping("/matriculas")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Matricula create(@RequestBody Matricula matricula) {
 		return matriculaservice.save(matricula);
 		
 	}
 	
-	@PutMapping("/matriculas/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Matricula update(@RequestBody Matricula matricula, @PathVariable Long id) {
 		
@@ -60,7 +60,7 @@ public class matriculaController {
 		return matriculaservice.save(matriculaActual);
 	}
 	
-	@DeleteMapping("/matriculas/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
 		matriculaservice.delete(id);

@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -35,8 +37,8 @@ public class Profesor implements Serializable{
 	  private String primer_apellido_profesor;
 	  private String segundo_apellido_profesor;
 	  private Long dpi_profesor;
-	  //@Temporal(TemporalType.DATE)
-	  @JsonFormat(pattern = "DD/MM/YYYY")
+	 // @Temporal(TemporalType.DATE)
+	  @JsonFormat(pattern = "yyyy/MM/dd")
 	  private Date fecha_nacimiento_profesor;
 	  private Integer edad_profesor;
 	  private String sexo_profesor;

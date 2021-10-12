@@ -19,34 +19,34 @@ import gt.com.edu.model.services.IClaseService;
 import gt.com.edu.models.entity.Clase;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/clases")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class claseController {
 	
 	@Autowired
 	private IClaseService claseService;
 	
-	@GetMapping("/clases")
+	@GetMapping("/listar")
 	public List<Clase> index(){
 		return claseService.findAll();
 	
 		
 	}
 	
-	@GetMapping("/clases/{id}")
+	@GetMapping("/buscar/{id}")
 	public Clase show(@PathVariable Long  id) {
 		return claseService.findById(id);
 		
 	}
 	
-	@PostMapping("/clases")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Clase create(@RequestBody Clase clase) {
 		return claseService.save(clase);
 		
 	}
 	
-	@PutMapping("/clases/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Clase update(@RequestBody Clase clase, @PathVariable Long id) {
 		
@@ -58,7 +58,7 @@ public class claseController {
 		return claseService.save(claseActual);
 	}
 	
-	@DeleteMapping("/clases/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
 	claseService.delete(id);

@@ -14,7 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -37,7 +38,7 @@ public class Responsable implements Serializable {
 	  private String segundo_apellido_responsable;
 	  private Integer dpi_responsable;
 	  //@Temporal(TemporalType.DATE)
-	  @JsonFormat(pattern = "dd/MM/yyyy")
+	  @JsonFormat(pattern = "yyyy/MM/dd")
 	  private Date fecha_nacimiento_responsable;
 	  private Integer edad_responsable;
 	  private String sexo_responsable;

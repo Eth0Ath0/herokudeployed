@@ -13,9 +13,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ControlEducativoEORM</name>
 	<description>Control Educativo</description>
-	<!-- <properties>
+	<properties>
 		<java.version>11</java.version>
-	</properties> -->
+	</properties> 
 	<dependencies>
 		  <dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -54,7 +54,7 @@
 		<dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-       <scope>runtime</scope>
+       
         </dependency> 
    <!--   <dependency>
 		<dependency>
@@ -85,11 +85,11 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
-    <groupId>org.apache.tomcat.embed</groupId>
+		<!--<dependency>
+     <groupId>org.apache.tomcat.embed</groupId>
     <artifactId>tomcat-embed-jasper</artifactId>
     <scope>provided</scope>
-</dependency>
+</dependency> -->
 		
 		
 	</dependencies>
@@ -113,7 +113,7 @@
 			
 			
 			
-            <plugin>
+           <!--  <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>{version}</version>
@@ -129,7 +129,7 @@
                             ${project.build.directory}/${project.build.finalName}.jar</web>
                     </processTypes>
                 </configuration>
-            </plugin>
+            </plugin> -->
 			
 			
 			
@@ -142,7 +142,7 @@
       </plugin>
       
       
-      <plugin>
+     <!--   <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -154,7 +154,7 @@
                     <showDeprecation>true</showDeprecation>
                     <compilerArgument>-Xlint:unchecked</compilerArgument>
                 </configuration>
-            </plugin>
+            </plugin> -->
 			
 		</plugins>
 		

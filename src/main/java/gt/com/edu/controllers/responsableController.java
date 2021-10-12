@@ -44,7 +44,7 @@ public class responsableController {
 	
 	
 	
-	@GetMapping("/{id}")
+	@GetMapping("/buscar/{id}")
 	public Responsable show(@PathVariable Long  id) {
 		return responsableservice.findById(id);
 		

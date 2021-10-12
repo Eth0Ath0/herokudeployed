@@ -20,13 +20,13 @@ import gt.com.edu.models.entity.Aula;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/aulas")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class aulaController {
 	@Autowired
 	private IAulaService aulaService;
 	
-	@GetMapping("/aulas")
+	@GetMapping("/listar")
 	public List<Aula> index(){
 		return aulaService.findAll();
 	
@@ -34,20 +34,20 @@ public class aulaController {
 	}
 	
 
-	@GetMapping("/aulas/{id}")
+	@GetMapping("/buscar/{id}")
 	public Aula show(@PathVariable Long  id) {
 		return aulaService.findById(id);
 		
 	}
 	
-	@PostMapping("/aulas")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Aula create(@RequestBody Aula aula) {
 		return aulaService.save(aula);
 		
 	}
 	
-	@PutMapping("/aulas/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Aula update(@RequestBody Aula aula, @PathVariable Long id) {
 		
@@ -62,7 +62,7 @@ public class aulaController {
 		return aulaService.save(aulaActual);
 	}
 	
-	@DeleteMapping("/aulas/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
     aulaService.delete(id);

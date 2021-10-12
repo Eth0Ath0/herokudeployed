@@ -19,7 +19,7 @@ import gt.com.edu.model.services.IEstudianteService;
 import gt.com.edu.models.entity.Estudiante;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/estudiantes")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 //@CrossOrigin(origins={"http"})
 public class estudianteController {
@@ -27,27 +27,27 @@ public class estudianteController {
 	@Autowired
 	private IEstudianteService estudianteservice;
 	
-	@GetMapping("/estudiantes")
+	@GetMapping("/listar")
 	public List<Estudiante> index(){
 		return estudianteservice.findAll();
 	
 		
 	}
 	
-	@GetMapping("/estudiantes/{id}")
+	@GetMapping("/buscar/{id}")
 	public Estudiante show(@PathVariable String  id) {
 		return estudianteservice.findById(id);
 		
 	}
 	
-	@PostMapping("/estudiantes")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Estudiante create(@RequestBody Estudiante estudiante) {
 		return estudianteservice.save(estudiante);
 		
 	}
 	
-	@PutMapping("/estudiantes/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Estudiante update(@RequestBody Estudiante estudiante, @PathVariable String id) {
 		
@@ -67,7 +67,7 @@ public class estudianteController {
 		return estudianteservice.save(estudianteActual);
 	}
 	
-	@DeleteMapping("/estudiantes/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable String id) {
 		estudianteservice.delete(id);

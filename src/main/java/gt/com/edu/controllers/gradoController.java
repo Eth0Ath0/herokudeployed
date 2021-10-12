@@ -22,34 +22,34 @@ import gt.com.edu.models.entity.Grado;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/grados")
 @CrossOrigin(origins={"http://localhost:4200","*"})
 public class gradoController {
 	
 	@Autowired
 	private IGradoService gradoService;
 	
-	@GetMapping("/grados")
+	@GetMapping("/listar")
 	public List<Grado> index(){
 		return gradoService.findAll();
 	
 		
 	}
 	
-	@GetMapping("/grados/{id}")
+	@GetMapping("/buscar/{id}")
 	public Grado show(@PathVariable Long  id) {
 		return gradoService.findById(id);
 		
 	}
 	
-	@PostMapping("/grados")
+	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Grado create(@RequestBody Grado grado) {
 		return gradoService.save(grado);
 		
 	}
 	
-	@PutMapping("/grados/{id}")
+	@PutMapping("/actualizar/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Grado update(@RequestBody Grado grado, @PathVariable Long id) {
 		
@@ -61,7 +61,7 @@ public class gradoController {
 		return gradoService.save(gradoActual);
 	}
 	
-	@DeleteMapping("/grados/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
 	gradoService.delete(id);

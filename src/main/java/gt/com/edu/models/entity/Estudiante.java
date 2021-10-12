@@ -15,7 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -35,7 +36,7 @@ public class Estudiante implements Serializable {
 	  private String primer_apellido_estudiante;
 	  private String segundo_apellido_estudiante;
 	  //@Temporal(TemporalType.DATE)
-	  @JsonFormat(pattern = "DD/MM/YYYY")
+	  @JsonFormat(pattern = "yyyy/MM/dd")
 	  private Date fecha_nacimiento;
 	  private Integer edad_estudiante;
 	  private String sexo_estudiante;
