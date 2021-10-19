@@ -29,7 +29,7 @@ public class Usuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-	public Integer enabled;
+	public Boolean enabled;
 	public String nombre_usuario;
 	public String contraseña_usuario;
 	
