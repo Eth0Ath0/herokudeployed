@@ -2,8 +2,7 @@ package gt.com.edu.models.entity;
 
 import java.io.Serializable;
 
-
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
@@ -26,6 +25,7 @@ public class Rol implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
 	public Long id;
+	@Column(unique=true, length = 20)
 	public String nombre_rol;
 	
 	  //relación entre roles y usuarios

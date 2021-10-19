@@ -2,6 +2,7 @@ package gt.com.edu.models.entity;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -16,6 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -36,9 +38,13 @@ public class Usuario implements Serializable{
 	 //relación entre usuarios y roles
 	    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	    @JoinColumn(name="rol_id")
-	    @ManyToMany(fetch =FetchType.LAZY)
-	    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id"))
-	    private Set<Rol> roles = new HashSet<>();
+	    @ManyToMany(fetch =FetchType.LAZY,cascade = CascadeType.ALL)
+	    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
+	    inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id"),
+	    uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id","rol_id"})})
+	   // private Set<Rol> roles = new HashSet<>();
+        private List<Rol>roles;	 
+	  
 	 
 	  
 	  
